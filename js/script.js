@@ -916,6 +916,7 @@ Meddelande: ${message || 'Inget meddelande'}`
         renderServicesGrid();
         renderBookingServices();
         adminFlash('Tjänsten har tagits bort', 'success');
+        pushToGitHub(false);
     };
 
     const serviceModalHTML = `
@@ -1019,6 +1020,7 @@ Meddelande: ${message || 'Inget meddelande'}`
         renderServicesGrid();
         renderBookingServices();
         document.getElementById('serviceModalOverlay').classList.remove('active');
+        pushToGitHub(false);
     });
 
     // Close modal on overlay click
@@ -1063,6 +1065,7 @@ Meddelande: ${message || 'Inget meddelande'}`
         renderTestimonialsTrack();
         initTestimonialCarousel();
         adminFlash('Kundrösten har tagits bort', 'success');
+        pushToGitHub(false);
     };
 
     const testimonialModalHTML = `
@@ -1144,6 +1147,7 @@ Meddelande: ${message || 'Inget meddelande'}`
         renderTestimonialsTrack();
         initTestimonialCarousel();
         document.getElementById('testimonialModalOverlay').classList.remove('active');
+        pushToGitHub(false);
     });
 
     document.getElementById('testimonialModalOverlay').addEventListener('click', (e) => {
@@ -1176,6 +1180,7 @@ Meddelande: ${message || 'Inget meddelande'}`
         renderHoursDisplay();
         updateHoursStatus();
         adminFlash('Öppettider har sparats', 'success');
+        pushToGitHub(false);
     });
 
     // ---- Admin: Contact Info ----
@@ -1257,6 +1262,7 @@ Meddelande: ${message || 'Inget meddelande'}`
         localStorage.setItem('wivexContact', JSON.stringify(c));
         applyContactToDOM(c);
         adminFlash('Kontaktinformation har sparats', 'success');
+        pushToGitHub(false);
     });
 
     // ---- GitHub Integration ----
@@ -1327,23 +1333,18 @@ Meddelande: ${message || 'Inget meddelande'}`
         };
     }
 
-    document.getElementById('githubSaveAll').addEventListener('click', async () => {
+    // ---- Auto-push to GitHub ----
+    async function pushToGitHub(showFlash = true) {
         const token = getGitHubToken();
         if (!token) {
-            adminFlash('Spara först en GitHub-token i fliken GitHub', 'error');
-            return;
+            if (showFlash) adminFlash('💾 Sparad lokalt – lägg till GitHub-token för att synka för alla', 'success');
+            return false;
         }
-
-        const btn = document.getElementById('githubSaveAll');
-        const originalHtml = btn.innerHTML;
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sparar...';
-        btn.disabled = true;
 
         try {
             const data = collectAllData();
             const content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
 
-            // Try to get existing file SHA
             let sha = null;
             try {
                 const getResp = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`, {
@@ -1355,7 +1356,6 @@ Meddelande: ${message || 'Inget meddelande'}`
                 }
             } catch (e) {}
 
-            // Create or update file
             const body = {
                 message: 'Uppdatera data från adminpanelen',
                 content: content
@@ -1377,15 +1377,25 @@ Meddelande: ${message || 'Inget meddelande'}`
             }
 
             const syncEl = document.getElementById('githubLastSync');
-            const now = new Date();
-            syncEl.textContent = 'Senast synkroniserad: ' + now.toLocaleString('sv-SE');
-            adminFlash('Data sparad på GitHub! Alla besökare ser ändringarna inom någon minut.', 'success');
+            if (syncEl) {
+                syncEl.textContent = 'Senast synkroniserad: ' + new Date().toLocaleString('sv-SE');
+            }
+            if (showFlash) adminFlash('✅ Sparad för alla! Syns inom 1–2 min.', 'success');
+            return true;
         } catch (e) {
-            adminFlash('GitHub-fel: ' + e.message, 'error');
-        } finally {
-            btn.innerHTML = originalHtml;
-            btn.disabled = false;
+            if (showFlash) adminFlash('✅ Sparad lokalt – GitHub-fel: ' + e.message, 'success');
+            return false;
         }
+    }
+
+    document.getElementById('githubSaveAll').addEventListener('click', async () => {
+        const btn = document.getElementById('githubSaveAll');
+        const originalHtml = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sparar...';
+        btn.disabled = true;
+        await pushToGitHub(true);
+        btn.innerHTML = originalHtml;
+        btn.disabled = false;
     });
 
     // Load remote data from GitHub on startup
