@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Salong Wivex - Frisörsalong i Sundsvall. Klippning, färgning, slingning och styling för dam och herr.">
+    <title>Salong Wivex | Frisör i Sundsvall</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HairSalon",
+        "name": "Salong Wivex",
+        "image": "https://www.wivex.se/images/logo.jpg",
+        "url": "https://www.wivex.se",
+        "telephone": "+4660152190",
+        "email": "info@wivex.se",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Torggatan 16",
+            "addressLocality": "Sundsvall",
+            "postalCode": "852 32",
+            "addressCountry": "SE"
+        },
+        "openingHoursSpecification": [
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "18:00" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "16:00" }
+        ],
+        "priceRange": "$$"
+    }
+    </script>
+</head>
+<body>
+
+    <div id="loader">
+        <div class="loader-content">
+            <img src="images/logo.jpg" alt="Salong Wivex" class="loader-logo">
+            <div class="loader-bar"><span></span></div>
+        </div>
+    </div>
+
+    <div id="scrollProgress"></div>
+
+    <nav class="navbar glass" id="navbar">
+        <div class="container nav-container">
+            <a href="#hem" class="logo">Salong <span>Wivex</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hem" class="active" data-route="hem">Hem</a></li>
+                <li><a href="#om-oss" data-route="om-oss">Om oss</a></li>
+                <li><a href="#tjanster" data-route="tjanster">Tjänster</a></li>
+                <li><a href="#galleri" data-route="galleri">Galleri</a></li>
+                <li><a href="#kontakt" data-route="kontakt">Kontakt</a></li>
+                <li><a href="#boka-tid" data-route="boka-tid" class="btn-nav">Boka tid</a></li>
+                <li>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Växla mörkt/ljust läge">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                    </button>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hours-bar" id="hoursBar">
+        <div class="container hours-bar-inner">
+            <span class="hours-bar-dot" id="hoursBarDot"></span>
+            <span id="hoursBarText">Kontrollerar öppettider...</span>
+        </div>
+    </div>
+
+    <section class="page" data-page="hem">
+        <div class="hero" id="hero">
+            <div class="particles" id="particles"></div>
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <img src="images/logo.jpg" alt="Salong Wivex logotyp" class="hero-logo">
+                <h1><span class="text-gradient">Salong Wivex</span></h1>
+                <p class="hero-subtitle">Din frisörsalong i hjärtat av Sundsvall <span class="hero-year">sedan 2018</span></p>
+                <div class="hero-cta">
+                    <a href="#boka-tid" class="btn btn-primary btn-glow">Boka tid</a>
+                    <a href="#tjanster" class="btn btn-outline">Våra tjänster</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section stats-section" id="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item animate fade-in">
+                        <span class="stat-number" data-target="7">0</span>
+                        <span class="stat-label">År i Sundsvall</span>
+                    </div>
+                    <div class="stat-item animate fade-in animate-delay-1">
+                        <span class="stat-number" data-target="8500">0</span>
+                        <span class="stat-label">Nöjda kunder</span>
+                    </div>
+                    <div class="stat-item animate fade-in animate-delay-2">
+                        <span class="stat-number" data-target="25">0</span>
+                        <span class="stat-label">Års erfarenhet</span>
+                    </div>
+                    <div class="stat-item animate fade-in animate-delay-3">
+                        <span class="stat-number" data-target="98">0</span>
+                        <span class="stat-label">% nöjdhet</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page" data-page="om-oss">
+        <div class="section" id="about">
+            <div class="container">
+                <div class="section-title">
+                    <span class="subtitle animate slide-up">Om oss</span>
+                    <h2 class="animate slide-up animate-delay-1">Möt <span class="text-gradient">Salong Wivex</span></h2>
+                </div>
+                <div class="about-grid">
+                    <div class="about-text animate slide-left">
+                        <p>Salong Wivex är en personlig frisörsalong belägen på Torggatan 16 i centrala Sundsvall. Vi erbjuder professionell hårvård för både dam och herr i en avslappnad och trivsam miljö.</p>
+                        <p>Våra erfarna frisörer håller sig alltid uppdaterade med de senaste trenderna och teknikerna för att ge dig bästa möjliga resultat.</p>
+                        <p>Vår salong har en rik historia – lokalen på Torggatan 16 var tidigare det legendariska nöjesetablissemanget Wivex, som under 1940–70-talet var en av Norrlands mest kända danslokaler.</p>
+                    </div>
+                    <div class="about-image animate slide-right">
+                        <div class="image-collage">
+                            <div class="collage-main glass">
+                                <i class="fas fa-store"></i>
+                                <span>Salong Wivex</span>
+                                <small>Torggatan 16, Sundsvall</small>
+                            </div>
+                            <div class="collage-accent glass">
+                                <i class="fas fa-quote-left"></i>
+                                <p>Här möts tradition och trend i en avslappnad atmosfär</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="testimonials">
+            <div class="container">
+                <div class="section-title">
+                    <span class="subtitle animate slide-up">Kundröster</span>
+                    <h2 class="animate slide-up animate-delay-1">Vad våra <span class="text-gradient">kunder säger</span></h2>
+                </div>
+                <div class="testimonials-carousel glass animate scale-in">
+                    <div class="testimonial-track" id="testimonialTrack">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"Bästa herrfrisören i Sundsvall! Alltid lika nöjd med resultatet, otroligt proffsiga och lyhörda. Rekommenderas varmt!"</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+                                <div>
+                                    <strong>Anders M.</strong>
+                                    <span>stamkund sedan 2021</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"Fantastiskt bemötande och proffsigt utfört! Gick från långt till kort och blev så nöjd. Miljön är riktigt trevlig och avslappnad."</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+                                <div>
+                                    <strong>Erik J.</strong>
+                                    <span>rekommenderar salongen</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"Äntligen hittat rätt herrsalong i Sundsvall! Duktiga på styling och alltid lyhörda för vad man vill ha. Bokar alltid tid här nu."</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+                                <div>
+                                    <strong>Magnus P.</strong>
+                                    <span>nöjd kund</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-dots" id="testimonialDots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page" data-page="tjanster">
+        <div class="section" id="services">
+            <div class="container">
+                <div class="section-title">
+                    <span class="subtitle animate slide-up">Våra tjänster</span>
+                    <h2 class="animate slide-up animate-delay-1">Professionell hårvård <span class="text-gradient">för alla</span></h2>
+                </div>
+                <div class="services-grid" id="servicesGrid">
+                    <div class="service-card glass animate scale-in animate-delay-1">
+                        <div class="service-icon"><i class="fas fa-cut"></i></div>
+                        <h3>Damklippning</h3>
+                        <p>Klippning, tvätt och styling med professionella produkter.</p>
+                        <div class="service-footer">
+                            <span class="price">Från 450 kr</span>
+                            <a href="#boka-tid" class="service-book">Boka <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="service-card glass animate scale-in animate-delay-2">
+                        <div class="service-icon"><i class="fas fa-cut"></i></div>
+                        <h3>Herrklippning</h3>
+                        <p>Klippning med maskin och sax, tvätt och styling.</p>
+                        <div class="service-footer">
+                            <span class="price">Från 350 kr</span>
+                            <a href="#boka-tid" class="service-book">Boka <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="service-card glass animate scale-in animate-delay-3">
+                        <div class="service-icon"><i class="fas fa-palette"></i></div>
+                        <h3>Färgning</h3>
+                        <p>Hel- och slingfärgning med högkvalitativa färger.</p>
+                        <div class="service-footer">
+                            <span class="price">Från 800 kr</span>
+                            <a href="#boka-tid" class="service-book">Boka <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="service-card glass animate scale-in animate-delay-4">
+                        <div class="service-icon"><i class="fas fa-highlighter"></i></div>
+                        <h3>Slingning</h3>
+                        <p>Finslingor eller breda slingor för en naturlig look.</p>
+                        <div class="service-footer">
+                            <span class="price">Från 900 kr</span>
+                            <a href="#boka-tid" class="service-book">Boka <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="service-card glass animate scale-in animate-delay-5">
+                        <div class="service-icon"><i class="fas fa-magic"></i></div>
+                        <h3>Styling</h3>
+                        <p>Festfrisyrer, bruduppsättning och vardagsstyling.</p>
+                        <div class="service-footer">
+                            <span class="price">Från 400 kr</span>
+                            <a href="#boka-tid" class="service-book">Boka <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="service-card glass animate scale-in animate-delay-6">
+                        <div class="service-icon"><i class="fas fa-spa"></i></div>
+                        <h3>Hårbehandling</h3>
+                        <p>Återfuktande och reparerande behandlingar för friskt hår.</p>
+                        <div class="service-footer">
+                            <span class="price">Från 300 kr</span>
+                            <a href="#boka-tid" class="service-book">Boka <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section bg-alt" id="hours">
+            <div class="container">
+                <div class="section-title">
+                    <span class="subtitle animate slide-up">Öppettider</span>
+                    <h2 class="animate slide-up animate-delay-1">Besök oss på <span class="text-gradient">Torggatan 16</span></h2>
+                </div>
+                <div class="hours-wrapper">
+                    <div class="hours-status-card glass animate slide-up" id="hoursStatus">
+                        <div class="status-indicator">
+                            <span class="status-dot" id="statusDot"></span>
+                            <span id="statusText">Kontrollerar...</span>
+                        </div>
+                        <p class="status-today" id="statusToday"></p>
+                    </div>
+                    <div class="hours-card-modern glass animate slide-up animate-delay-1">
+                        <div class="hours-card-header">
+                            <i class="fas fa-clock"></i>
+                            <span>Veckoöppettider</span>
+                        </div>
+                        <div class="hours-list">
+                            <div class="hours-day" data-day="1">
+                                <span class="day-icon"><i class="fas fa-calendar-day"></i></span>
+                                <span class="day-name">Måndag</span>
+                                <span class="day-time">09:00 – 18:00</span>
+                            </div>
+                            <div class="hours-day" data-day="2">
+                                <span class="day-icon"><i class="fas fa-calendar-day"></i></span>
+                                <span class="day-name">Tisdag</span>
+                                <span class="day-time">09:00 – 18:00</span>
+                            </div>
+                            <div class="hours-day" data-day="3">
+                                <span class="day-icon"><i class="fas fa-calendar-day"></i></span>
+                                <span class="day-name">Onsdag</span>
+                                <span class="day-time">09:00 – 18:00</span>
+                            </div>
+                            <div class="hours-day" data-day="4">
+                                <span class="day-icon"><i class="fas fa-calendar-day"></i></span>
+                                <span class="day-name">Torsdag</span>
+                                <span class="day-time">09:00 – 18:00</span>
+                            </div>
+                            <div class="hours-day" data-day="5">
+                                <span class="day-icon"><i class="fas fa-calendar-day"></i></span>
+                                <span class="day-name">Fredag</span>
+                                <span class="day-time">09:00 – 18:00</span>
+                            </div>
+                            <div class="hours-day" data-day="6">
+                                <span class="day-icon"><i class="fas fa-calendar-day"></i></span>
+                                <span class="day-name">Lördag</span>
+                                <span class="day-time">10:00 – 16:00</span>
+                            </div>
+                            <div class="hours-day closed" data-day="0">
+                                <span class="day-icon"><i class="fas fa-ban"></i></span>
+                                <span class="day-name">Söndag</span>
+                                <span class="day-time">Stängt</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hours-contact-row glass">
+                        <div class="hours-contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Torggatan 16, 852 32 Sundsvall</span>
+                        </div>
+                        <div class="hours-contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span><a href="tel:+4660152190">060-15 21 90</a></span>
+                        </div>
+                    </div>
+                    <p class="hours-note">Avvikande öppettider kan förekomma under helgdagar. Ring oss gärna för att dubbelkolla.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page" data-page="galleri">
+        <div class="section" id="gallery">
+            <div class="container">
+                <div class="section-title">
+                    <span class="subtitle animate slide-up">Galleri</span>
+                    <h2 class="animate slide-up animate-delay-1">Våra <span class="text-gradient">arbeten</span></h2>
+                </div>
+                <div class="gallery-grid" id="galleryGrid">
+                    <div class="gallery-item animate scale-in">
+                        <div class="gallery-img">
+                            <img src="galleri/621446419_18067338437210789_7175424620085430411_n.jpg" alt="Klippning" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="gallery-item animate scale-in animate-delay-1">
+                        <div class="gallery-img">
+                            <img src="galleri/621467843_18103635433825525_3922392687880567009_n.jpg" alt="Färgning" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="gallery-item animate scale-in animate-delay-2">
+                        <div class="gallery-img">
+                            <img src="galleri/621573980_18084977045156892_3870673575196369832_n.jpg" alt="Styling" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="gallery-item animate scale-in animate-delay-3">
+                        <div class="gallery-img">
+                            <img src="galleri/621737518_18091441780990884_9136121281601035481_n.jpg" alt="Klippning" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="gallery-item animate scale-in animate-delay-4">
+                        <div class="gallery-img">
+                            <img src="galleri/626253890_18116636707716571_2900167319634209250_n.webp" alt="Färgning" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="gallery-item animate scale-in animate-delay-5">
+                        <div class="gallery-img">
+                            <img src="galleri/627091364_18397563100195027_7411646188353117980_n.jpg" alt="Styling" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page" data-page="kontakt">
+        <div class="section" id="contact">
+            <div class="container">
+                <div class="section-title">
+                    <span class="subtitle animate slide-up">Kontakt</span>
+                    <h2 class="animate slide-up animate-delay-1">Hitta <span class="text-gradient">hit</span></h2>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-info animate slide-left">
+                        <div class="contact-item glass animate slide-up animate-delay-1">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Adress</h4>
+                                <p>Torggatan 16<br>852 32 Sundsvall</p>
+                            </div>
+                        </div>
+                        <div class="contact-item glass animate slide-up animate-delay-2">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Telefon</h4>
+                                <p><a href="tel:+4660152190">060-15 21 90</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item glass animate slide-up animate-delay-3">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>E-post</h4>
+                                <p><a href="mailto:info@wivex.se">info@wivex.se</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item glass animate slide-up animate-delay-4">
+                            <i class="fas fa-globe"></i>
+                            <div>
+                                <h4>Webbplats</h4>
+                                <p><a href="https://www.wivex.se" target="_blank">www.wivex.se</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-social animate fade-in animate-delay-5">
+                            <a href="https://www.facebook.com/salongwivex" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-link social-facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/salongwivex/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-link social-instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="contact-map animate slide-right animate-delay-2">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1759.584281237738!2d17.3069735!3d62.390936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4664f0b7b7b7b7b7%3A0x7b7b7b7b7b7b7b7b!2sTorggatan%2016%2C%20852%2032%20Sundsvall!5e0!3m2!1ssv!2sse!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Karta till Salong Wivex"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page" data-page="boka-tid">
+        <div class="section" id="booking">
+            <div class="container">
+                <div class="section-title">
+                    <span class="subtitle animate slide-up">Boka tid</span>
+                    <h2 class="animate slide-up animate-delay-1">Boka din tid <span class="text-gradient">hos oss</span></h2>
+                </div>
+                <div class="booking-container">
+                    <div class="booking-intro animate fade-in animate-delay-2">
+                        <p>Fyll i formuläret nedan så kontaktar vi dig för att bekräfta din bokning. Du kan även ringa oss på <a href="tel:+4660152190">060-15 21 90</a> för att boka direkt.</p>
+                    </div>
+
+                    <div class="step-indicator animate fade-in">
+                        <div class="step active" data-step="1"><span class="step-num">1</span><span class="step-label">Tjänst</span></div>
+                        <div class="step-line"></div>
+                        <div class="step" data-step="2"><span class="step-num">2</span><span class="step-label">Tid</span></div>
+                        <div class="step-line"></div>
+                        <div class="step" data-step="3"><span class="step-num">3</span><span class="step-label">Uppgifter</span></div>
+                    </div>
+
+                    <form class="booking-form glass animate slide-up animate-delay-3" id="bookingForm">
+                        <div class="form-step active" data-form-step="1">
+                            <h3 class="form-step-title">Välj tjänst</h3>
+                            <div class="booking-services" id="bookingServices">
+                                <label class="booking-service-option">
+                                    <input type="radio" name="bookingService" value="damklippning" required>
+                                    <span class="booking-service-card glass">
+                                        <i class="fas fa-cut"></i>
+                                        <strong>Damklippning</strong>
+                                        <small>Från 450 kr</small>
+                                    </span>
+                                </label>
+                                <label class="booking-service-option">
+                                    <input type="radio" name="bookingService" value="herrklippning">
+                                    <span class="booking-service-card glass">
+                                        <i class="fas fa-cut"></i>
+                                        <strong>Herrklippning</strong>
+                                        <small>Från 350 kr</small>
+                                    </span>
+                                </label>
+                                <label class="booking-service-option">
+                                    <input type="radio" name="bookingService" value="fargning">
+                                    <span class="booking-service-card glass">
+                                        <i class="fas fa-palette"></i>
+                                        <strong>Färgning</strong>
+                                        <small>Från 800 kr</small>
+                                    </span>
+                                </label>
+                                <label class="booking-service-option">
+                                    <input type="radio" name="bookingService" value="slingning">
+                                    <span class="booking-service-card glass">
+                                        <i class="fas fa-highlighter"></i>
+                                        <strong>Slingning</strong>
+                                        <small>Från 900 kr</small>
+                                    </span>
+                                </label>
+                                <label class="booking-service-option">
+                                    <input type="radio" name="bookingService" value="styling">
+                                    <span class="booking-service-card glass">
+                                        <i class="fas fa-magic"></i>
+                                        <strong>Styling</strong>
+                                        <small>Från 400 kr</small>
+                                    </span>
+                                </label>
+                                <label class="booking-service-option">
+                                    <input type="radio" name="bookingService" value="behandling">
+                                    <span class="booking-service-card glass">
+                                        <i class="fas fa-spa"></i>
+                                        <strong>Hårbehandling</strong>
+                                        <small>Från 300 kr</small>
+                                    </span>
+                                </label>
+                            </div>
+                            <button type="button" class="btn btn-primary btn-next" data-next="2">Fortsätt <i class="fas fa-arrow-right"></i></button>
+                        </div>
+
+                        <div class="form-step" data-form-step="2">
+                            <h3 class="form-step-title">Välj tid</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="stepDate">Önskat datum *</label>
+                                    <input type="date" id="stepDate" name="stepDate" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="stepTime">Önskad tid *</label>
+                                    <select id="stepTime" name="stepTime" required>
+                                        <option value="">Välj tid</option>
+                                        <option value="09:00">09:00</option>
+                                        <option value="10:00">10:00</option>
+                                        <option value="11:00">11:00</option>
+                                        <option value="12:00">12:00</option>
+                                        <option value="13:00">13:00</option>
+                                        <option value="14:00">14:00</option>
+                                        <option value="15:00">15:00</option>
+                                        <option value="16:00">16:00</option>
+                                        <option value="17:00">17:00</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-nav">
+                                <button type="button" class="btn btn-outline-primary btn-prev" data-prev="1"><i class="fas fa-arrow-left"></i> Tillbaka</button>
+                                <button type="button" class="btn btn-primary btn-next" data-next="3">Fortsätt <i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="form-step" data-form-step="3">
+                            <h3 class="form-step-title">Dina uppgifter</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Namn *</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Telefon *</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">E-post</label>
+                                    <input type="email" id="email" name="email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Meddelande</label>
+                                <textarea id="message" name="message" rows="3" placeholder="Önskemål eller extra information..."></textarea>
+                            </div>
+                            <div class="form-nav">
+                                <button type="button" class="btn btn-outline-primary btn-prev" data-prev="2"><i class="fas fa-arrow-left"></i> Tillbaka</button>
+                                <button type="submit" class="btn btn-primary btn-submit">
+                                    <span>Skicka bokning</span>
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-status" id="formStatus"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page" data-page="admin">
+        <div class="section" id="adminSection">
+            <div class="container">
+                <div class="admin-login" id="adminLogin">
+                    <div class="admin-login-box glass">
+                        <h2>Admin Panel</h2>
+                        <p>Ange lösenord för att fortsätta</p>
+                        <form id="adminLoginForm">
+                            <input type="password" id="adminPassword" placeholder="Lösenord" autocomplete="current-password">
+                            <button type="submit" class="btn btn-primary" id="adminLoginBtn">Logga in</button>
+                        </form>
+                        <p class="admin-error" id="adminError"></p>
+                    </div>
+                </div>
+                <div class="admin-dashboard" id="adminDashboard" style="display:none">
+                    <div class="admin-header">
+                        <h2><i class="fas fa-shield-alt"></i> Admin Dashboard</h2>
+                        <button class="btn btn-outline-primary" id="adminLogout"><i class="fas fa-sign-out-alt"></i> Logga ut</button>
+                    </div>
+                    <div class="admin-body">
+                        <div class="admin-sidebar">
+                            <button class="admin-tab active" data-tab="services"><i class="fas fa-cut"></i> Tjänster</button>
+                            <button class="admin-tab" data-tab="testimonials"><i class="fas fa-star"></i> Kundröster</button>
+                            <button class="admin-tab" data-tab="hours"><i class="fas fa-clock"></i> Öppettider</button>
+                            <button class="admin-tab" data-tab="contact"><i class="fas fa-phone"></i> Kontakt</button>
+                            <button class="admin-tab" data-tab="github"><i class="fab fa-github"></i> GitHub</button>
+                        </div>
+                        <div class="admin-content">
+                            <div class="admin-panel active" id="panel-services">
+                                <div class="admin-panel-header">
+                                    <h3>Tjänster</h3>
+                                    <button class="btn btn-primary btn-sm" id="adminAddService"><i class="fas fa-plus"></i> Lägg till</button>
+                                </div>
+                                <div class="admin-table-wrap">
+                                    <table class="admin-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Namn</th>
+                                                <th>Beskrivning</th>
+                                                <th>Pris</th>
+                                                <th>Ikon</th>
+                                                <th style="width:100px">Åtgärder</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="adminServicesBody"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="admin-panel" id="panel-testimonials">
+                                <div class="admin-panel-header">
+                                    <h3>Kundröster</h3>
+                                    <button class="btn btn-primary btn-sm" id="adminAddTestimonial"><i class="fas fa-plus"></i> Lägg till</button>
+                                </div>
+                                <div class="admin-table-wrap">
+                                    <table class="admin-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Namn</th>
+                                                <th>Text</th>
+                                                <th>Undertext</th>
+                                                <th style="width:100px">Åtgärder</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="adminTestimonialsBody"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="admin-panel" id="panel-hours">
+                                <div class="admin-panel-header">
+                                    <h3>Öppettider</h3>
+                                </div>
+                                <div class="admin-hours-form">
+                                    <div class="admin-hours-row">
+                                        <label>Måndag</label>
+                                        <input type="time" id="hour1open" value="09:00"> <span>till</span> <input type="time" id="hour1close" value="18:00">
+                                    </div>
+                                    <div class="admin-hours-row">
+                                        <label>Tisdag</label>
+                                        <input type="time" id="hour2open" value="09:00"> <span>till</span> <input type="time" id="hour2close" value="18:00">
+                                    </div>
+                                    <div class="admin-hours-row">
+                                        <label>Onsdag</label>
+                                        <input type="time" id="hour3open" value="09:00"> <span>till</span> <input type="time" id="hour3close" value="18:00">
+                                    </div>
+                                    <div class="admin-hours-row">
+                                        <label>Torsdag</label>
+                                        <input type="time" id="hour4open" value="09:00"> <span>till</span> <input type="time" id="hour4close" value="18:00">
+                                    </div>
+                                    <div class="admin-hours-row">
+                                        <label>Fredag</label>
+                                        <input type="time" id="hour5open" value="09:00"> <span>till</span> <input type="time" id="hour5close" value="18:00">
+                                    </div>
+                                    <div class="admin-hours-row">
+                                        <label>Lördag</label>
+                                        <input type="time" id="hour6open" value="10:00"> <span>till</span> <input type="time" id="hour6close" value="16:00">
+                                    </div>
+                                    <div class="admin-hours-row">
+                                        <label>Söndag</label>
+                                        <span class="admin-hours-closed">Stängt</span>
+                                    </div>
+                                    <button class="btn btn-primary" id="adminSaveHours"><i class="fas fa-save"></i> Spara öppettider</button>
+                                </div>
+                            </div>
+                            <div class="admin-panel" id="panel-contact">
+                                <div class="admin-panel-header">
+                                    <h3>Kontaktinformation</h3>
+                                </div>
+                                <div class="admin-contact-form">
+                                    <div class="form-group">
+                                        <label>Adress</label>
+                                        <input type="text" id="adminAddress" value="Torggatan 16, 852 32 Sundsvall">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Telefon</label>
+                                        <input type="text" id="adminPhone" value="060-15 21 90">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>E-post</label>
+                                        <input type="email" id="adminEmail" value="info@wivex.se">
+                                    </div>
+                                    <button class="btn btn-primary" id="adminSaveContact"><i class="fas fa-save"></i> Spara kontaktinfo</button>
+                                </div>
+                            </div>
+                            <div class="admin-panel" id="panel-github">
+                                <div class="admin-panel-header">
+                                    <h3><i class="fab fa-github"></i> GitHub – Spara för alla</h3>
+                                </div>
+                                <p style="color:var(--color-text-light);margin-bottom:16px;font-size:0.9rem">Anslut till GitHub så syns dina ändringar för alla besökare direkt.</p>
+                                <div class="admin-github-form">
+                                    <div class="form-group">
+                                        <label>GitHub-token <small style="color:var(--color-text-light)">(skapa på github.com/settings/tokens – scope: <code>repo</code>)</small></label>
+                                        <div style="display:flex;gap:8px">
+                                            <input type="password" id="githubToken" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" style="flex:1">
+                                            <button class="btn btn-primary btn-sm" id="githubSaveToken"><i class="fas fa-check"></i> Spara</button>
+                                        </div>
+                                    </div>
+                                    <div style="margin:16px 0;padding:12px;background:var(--color-glass);border-radius:8px;border:1px solid var(--color-glass-border)">
+                                        <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
+                                            <span id="githubStatusDot" style="width:10px;height:10px;border-radius:50%;background:#e74c3c;display:inline-block"></span>
+                                            <span id="githubStatusText" style="color:var(--color-text-light);font-size:0.85rem">Inte ansluten</span>
+                                        </div>
+                                        <div style="font-size:0.82rem;color:var(--color-text-light)" id="githubRepoInfo">mohamadnour19/wivexsalong</div>
+                                    </div>
+                                    <button class="btn btn-primary" id="githubSaveAll" style="width:100%;padding:14px;font-size:1rem">
+                                        <i class="fas fa-cloud-upload-alt"></i> Spara för alla
+                                    </button>
+                                    <p style="color:var(--color-text-light);font-size:0.82rem;margin-top:10px;text-align:center" id="githubLastSync">Ingen synkronisering gjord än</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="quoteWidget" class="quote-widget glass">
+        <div class="quote-widget-inner">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <p id="quoteText">Hår är kronan på verket.</p>
+        </div>
+    </div>
+
+    <button id="fabBooking" aria-label="Boka tid" title="Boka tid">
+        <i class="fas fa-calendar-check"></i>
+        <span class="fab-tooltip">Boka tid</span>
+    </button>
+
+    <button id="scrollTop" aria-label="Tillbaka till toppen"><i class="fas fa-arrow-up"></i></button>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Salong Wivex</h3>
+                    <p>Din frisörsalong i Sundsvall sedan 2018. Vi erbjuder professionell hårvård med personlig service i en avslappnad miljö.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/salongwivex" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-link social-facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/salongwivex/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-link social-instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Snabblänkar</h4>
+                    <ul>
+                        <li><a href="#hem" data-route="hem">Hem</a></li>
+                        <li><a href="#om-oss" data-route="om-oss">Om oss</a></li>
+                        <li><a href="#tjanster" data-route="tjanster">Tjänster</a></li>
+                        <li><a href="#galleri" data-route="galleri">Galleri</a></li>
+                        <li><a href="#boka-tid" data-route="boka-tid">Boka tid</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Kontakt</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Torggatan 16, Sundsvall</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+4660152190">060-15 21 90</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@wivex.se">info@wivex.se</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Salong Wivex. Alla rättigheter förbehållna.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
