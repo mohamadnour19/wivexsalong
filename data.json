@@ -1,0 +1,98 @@
+{
+  "services": [
+    {
+      "id": "s1",
+      "name": "Damklippning",
+      "desc": "Klippning, tvätt och styling med professionella produkter.",
+      "price": "Från 5555kr",
+      "icon": "fa-cut"
+    },
+    {
+      "id": "s2",
+      "name": "Herrklippning",
+      "desc": "Klippning och styling med maskin och sax.",
+      "price": "Från 350 kr",
+      "icon": "fa-cut"
+    },
+    {
+      "id": "s3",
+      "name": "Färgning",
+      "desc": "Hel- och slingfärgning med högkvalitativa färger.",
+      "price": "Från 800 kr",
+      "icon": "fa-palette"
+    },
+    {
+      "id": "s4",
+      "name": "Slingning",
+      "desc": "Balayage, slingor och nyanser för ett naturligt resultat.",
+      "price": "Från 900 kr",
+      "icon": "fa-highlighter"
+    },
+    {
+      "id": "s5",
+      "name": "Styling",
+      "desc": "Festfrisyrer, bröllopsstyling och uppsättningar.",
+      "price": "Från 400 kr",
+      "icon": "fa-magic"
+    },
+    {
+      "id": "s6",
+      "name": "Hårbehandling",
+      "desc": "Återfuktande och reparerande behandlingar för friskt hår.",
+      "price": "Från 300 kr",
+      "icon": "fa-spa"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "t1",
+      "name": "Anders M.",
+      "text": "Bästa herrfrisören i Sundsvall! Alltid lika nöjd med resultatet, otroligt proffsiga och lyhörda. Rekommenderas varmt!",
+      "subtitle": "stamkund sedan 2021"
+    },
+    {
+      "id": "t2",
+      "name": "Erik J.",
+      "text": "Fantastiskt bemötande och proffsigt utfört! Gick från långt till kort och blev så nöjd. Miljön är riktigt trevlig och avslappnad.",
+      "subtitle": "rekommenderar salongen"
+    },
+    {
+      "id": "t3",
+      "name": "Magnus P.",
+      "text": "Äntligen hittat rätt herrsalong i Sundsvall! Duktiga på styling och alltid lyhörda för vad man vill ha. Bokar alltid tid här nu.",
+      "subtitle": "nöjd kund"
+    }
+  ],
+  "hours": {
+    "0": null,
+    "1": {
+      "open": "09:00",
+      "close": "18:00"
+    },
+    "2": {
+      "open": "09:00",
+      "close": "18:00"
+    },
+    "3": {
+      "open": "09:00",
+      "close": "18:00"
+    },
+    "4": {
+      "open": "09:00",
+      "close": "18:00"
+    },
+    "5": {
+      "open": "09:00",
+      "close": "18:00"
+    },
+    "6": {
+      "open": "10:00",
+      "close": "16:00"
+    }
+  },
+  "contact": {
+    "address": "Torggatan 16, 852 32 Sundsvall",
+    "phone": "060-15 21 90",
+    "email": "info@wivex.se"
+  }
+}
