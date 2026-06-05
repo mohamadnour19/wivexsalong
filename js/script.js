@@ -604,6 +604,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (bookingForm) {
         bookingForm.addEventListener('submit', async (e) => {
             e.preventDefault();
+            const disabledOverlay = document.querySelector('.booking-disabled');
+            if (disabledOverlay) {
+                showFormStatus('Bokning är stängd för tillfället. Ring 060-15 21 90 för att boka.', 'error');
+                return;
+            }
 
             const name = document.getElementById('name').value.trim();
             const phone = document.getElementById('phone').value.trim();

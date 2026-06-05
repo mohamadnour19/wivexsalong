@@ -1330,6 +1330,49 @@ img {
     border: none;
 }
 
+/* Booking disabled overlay */
+.booking-form-wrap {
+    position: relative;
+}
+
+.booking-disabled {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    text-align: center;
+    padding: 50px 30px;
+    background: var(--color-glass);
+    backdrop-filter: blur(12px);
+    border-radius: var(--radius);
+    border: 2px dashed var(--color-accent);
+    margin-bottom: 20px;
+    pointer-events: auto;
+}
+
+.booking-disabled .booking-disabled-icon {
+    font-size: 3rem;
+    color: var(--color-accent);
+    margin-bottom: 16px;
+}
+
+.booking-disabled h3 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    color: var(--color-text);
+}
+
+.booking-disabled p {
+    color: var(--color-text-light);
+    margin-bottom: 24px;
+    font-size: 0.95rem;
+}
+
+.booking-disabled .btn {
+    display: inline-block;
+}
+
 .booking-container {
     max-width: 700px;
     margin: 0 auto;
