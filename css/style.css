@@ -1821,6 +1821,10 @@ img {
         pointer-events: all;
     }
 
+    [data-theme="dark"] .nav-links {
+        background: var(--color-bg-alt);
+    }
+
     .nav-links a {
         width: 100%;
         text-align: center;
